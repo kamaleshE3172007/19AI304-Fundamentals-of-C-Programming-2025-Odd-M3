@@ -28,7 +28,25 @@ To formulate a C program to convert a decimal number into its binary equivalent 
 ### Step 8: 
    Stop
 # Program:
+```
+#include <stdio.h>
+int main(){
+   int n;
+   scanf("%d",&n);
+   int a=n;
+   int c=0,b=1;
+   while(n!=0){
+       int rem=n%2;
+       c+=rem*b;
+       n/=2;
+       b*=10;
+   }
+   printf("%d decimal number is = %d of binary number",a,c);
+   return 0;
+}
+```
 # Output:
+![alt text](image.png)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -67,7 +85,62 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 9: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int main() {
+    int a[10][10];
+    int r, c;
+    int i, j, k;
+    int min, col;
+    int found = 0;
+
+ 
+    scanf("%d %d", &r, &c);
+
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+
+    for (i = 0; i < r; i++) {
+        min = a[i][0];
+        col = 0;
+
+
+        for (j = 1; j < c; j++) {
+            if (a[i][j] < min) {
+                min = a[i][j];
+                col = j;
+            }
+        }
+
+
+        for (k = 0; k < r; k++) {
+            if (a[k][col] > min)
+                break;
+        }
+
+        if (k == r) {
+           
+            printf("Value: %d\n", min);
+            printf("Position: Row %d, Column %d\n", i, col);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found)
+        printf("No saddle point found in the matrix.\n");
+
+    return 0;
+}
+
+```
 # Output:
+![alt text](image-1.png)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -101,7 +174,25 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10: 
   Stop
 # Program:
+```
+#include<stdio.h>
+#include<string.h>
+int main(){
+  
+    char a[100];
+    scanf("%s",a);
+    printf("The reversed string is: ");
+    int b=strlen(a);
+    
+    for(int j=b-1;j>=0;j--){
+        printf("%c",a[j]);
+    }
+    
+    return 0;
+}
+```
 # Output:
+![alt text](image-2.png)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -135,7 +226,35 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 8:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int freq[256] = {0};  
+    int i;
+
+
+    scanf("%s",str);
+
+
+    for (i = 0; str[i] != '\0'; i++) {
+        freq[(int)str[i]]++;
+    }
+
+    printf("Character frequencies:\n");
+    for (i = 0; i < 256; i++) {
+        if (freq[i] != 0) {
+            printf("%c = %d\n", i, freq[i]);
+        }
+    }
+
+    return 0;
+}
+```
 # Output:
+
+![alt text](image-3.png)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -169,7 +288,45 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 8: 
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], words[50][50];
+    int i, j, count = 0;
+    int duplicate;
+
+    printf("Enter a string:\n");
+    scanf(" %[^\n]", str);
+
+    char *token = strtok(str, " ");
+    while (token != NULL) {
+        strcpy(words[count], token);
+        count++;
+        token = strtok(NULL, " ");
+    }
+
+    printf("String after removing duplicate words:\n");
+
+    for (i = 0; i < count; i++) {
+        duplicate = 0;
+        for (j = 0; j < i; j++) {
+            if (strcmp(words[i], words[j]) == 0) {
+                duplicate = 1;
+                break;
+            }
+        }
+        if (duplicate == 0) {
+            printf("%s ", words[i]);
+        }
+    }
+
+    return 0;
+}
+```
 # Output:
+![alt text](image-4.png)
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
